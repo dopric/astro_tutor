@@ -1,9 +1,49 @@
-<header>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/blog">Blog</a>
-</header>
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const pageTitle = "About me page "
+const myInfo = {
+    name: 'Dragan Opric',
+    country: 'Switzerland',
+    occupation: 'Software Developer',
+    programmingLanguages: [
+        "Python",
+        "C#",
+        "Javascript",
+        "AngularJs"
+    ],
+    openForPositions: false,
+}
+const skillColor='navy';
+const myInfoColor = 'green';
+---
+<Header/>
+<style define:vars={{skillColor, myInfoColor}}>
+    h1{color: purple; font-size: 4rem;}
+    .skill{
+        color: var(--skillColor);
+        font-weight: bold;
+    }
+    h3{
+        color: var(--myInfoColor)
+    }
+</style>
 <div>
-    <h1>About page</h1>
-    <p>working through astro Tutorial</p>
+    <h1>{pageTitle}</h1>
+    <h3>{myInfo.name}</h3>
+    <h3>{myInfo.country}</h3>
+    <h3>{myInfo.occupation}</h3>
+    <ul>
+        {myInfo.programmingLanguages.map((language)=> <li class="skill">{language}</li>)}
+    </ul>
+    <h4>Open for new positions: {myInfo.openForPositions? "Yes": "No"}</h4>
+    
 </div>
+
+<Footer/>
+<script>
+    import '../js/menu.js'
+</script>

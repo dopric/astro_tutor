@@ -1,0 +1,21 @@
+---
+import Social from "./Social.astro";
+const platform = "github";
+const username = 'dopric';
+---
+
+<style>
+    footer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+<footer>
+    <p>Learn more about my projects on <a href={`https://www.${platform}.com/${username}`}>{platform}</a>!</p>
+    <div>
+    <Social username="dopric" platform="github"></Social>
+    <Social link="https://www.linkedin.com/in/dragan-opric-07a116104/" platform="linkedin"></Social>
+</div>
+  </footer>
